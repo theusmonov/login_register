@@ -1,8 +1,10 @@
 import express from "express";
+import {configration} from "./config/configFile.js";
+
+const {port, host, db} = configration;
 
 const app = express();
 
-const port = 4000
 app.listen(port, () => {
-    console.log(`Server is running:${port}`)
+    console.log(`Server is running http://${host}:${port}`)
 })
