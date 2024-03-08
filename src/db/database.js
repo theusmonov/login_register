@@ -3,5 +3,5 @@ import {configration} from "../config/configFile.js";
 
 const {db} = configration
 export const sequelize = new Sequelize(db, {
-    logging: true
+    logging: false
 })
