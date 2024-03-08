@@ -5,6 +5,7 @@ import {sequelize} from "./db/database.js"
 const {port, host, db} = configration;
 
 const app = express();
+app.use(express.json())
 
 try {
     await sequelize.authenticate();
