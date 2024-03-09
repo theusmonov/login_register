@@ -1,14 +1,13 @@
 import {DataTypes, Model} from "sequelize";
 import {sequelize} from "../db/database.js";
 
-export class SignUpsignInModel extends Model{}
+export class UserModel extends Model{}
 
-SignUpsignInModel.init({
+UserModel.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement:true,
-        allowNull:false,
-        primaryKey:true
+        allowNull:false
     },
     name: {
         type: DataTypes.STRING,
@@ -22,11 +21,6 @@ SignUpsignInModel.init({
     password: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    role: {
-        type: DataTypes.ENUM('user', 'admin'),
-        defaultValue: 'user'
-
     }
 }, {
     sequelize: sequelize,
