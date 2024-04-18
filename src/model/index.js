@@ -1,4 +1,4 @@
-import {Model, Sequelize, DataTypes, ENUM} from "sequelize";
+import {Model,DataTypes} from "sequelize";
 import { UserRole } from "../shared/utils/user_role.js";
 import connectDb from "../db/index.js";
 
