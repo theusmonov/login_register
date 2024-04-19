@@ -10,7 +10,7 @@ export class UserModel extends Model{}
 UserModel.init({
     uuid: {
         type: DataTypes.UUID,
-        defaultValue: uuidv4(),
+        defaultValue: () => uuidv4(),
         allowNull: false,
     },
     firstname: {
@@ -38,8 +38,9 @@ UserModel.init({
 }, {
     sequelize: connectDb,
     timestamps: true,
+    paranoid :true,
     tableName: "users",
     deletedAt: true
 })
 
-await connectDb.sync({alter: true})
+await connectDb.sync({force: true})
