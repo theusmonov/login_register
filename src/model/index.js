@@ -1,15 +1,16 @@
 import {Model,DataTypes} from "sequelize";
 import { UserRole } from "../shared/utils/user_role.js";
 import connectDb from "../db/index.js";
+import {v4 as uuidv4} from "uuid";
 
 
 
 export class UserModel extends Model{}
 
 UserModel.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: uuidv4(),
         allowNull: false,
     },
     firstname: {
