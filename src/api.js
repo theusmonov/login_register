@@ -3,6 +3,6 @@ import authRouter from "./modules/auth/_api.js";
 
 const mainRouter = Router();
 
-mainRouter.use(authRouter);
+mainRouter.use('/api/',authRouter);
 
 export default mainRouter;

@@ -3,12 +3,13 @@ const validateMiddleware = (data) => {
         try {
             const {error, value} = data.validate(req.body);
             if(error){
-                res.status(500).send({error: error.message});
+              return res.status(400).json({error: error.message});
             }
             req.resalt = value
             next();
         } catch(err){
-            console.log(err.message);
+            console.log(err);
+            return res.status(500).json({error: err.message});
         }
     }
 }

@@ -43,4 +43,4 @@ UserModel.init({
     deletedAt: true
 })
 
-await connectDb.sync({force: true})
+await connectDb.sync({alter: true})

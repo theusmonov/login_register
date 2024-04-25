@@ -1,11 +1,11 @@
 import {userRegister} from "./user-register.js";
 
 
-export const postRegister = async (req, res) => {
+export const postRegister = async (req, res, next) => {
     try {
         const data = await userRegister(req.body);
-        return res.status(201).json({data, message: "Register successfully"});
+        return res.status(201).json({data, message: "Registration is complete"});
     } catch (err) {
-        return res.status(500).json(err.message);
+        next(err)
     }
-}
+};
