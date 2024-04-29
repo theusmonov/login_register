@@ -1,7 +1,7 @@
 import {BadRequestError} from "./classes.js";
 
 
-export const errorhandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
     let status = 500;
 
     if (err instanceof BadRequestError) status = 400;
