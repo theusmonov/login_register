@@ -11,17 +11,28 @@ const registerSchema = Joi.object({
             'string.empty': 'Firstname should not be empty',
         }),
     lastname: Joi.string()
-        .min(3)
+        .min(5)
         .max(30)
-        .required(),
+        .required()
+        .messages({
+            'string.min': 'There should not be less than 3',
+            'string.max': 'There should be no more than 30',
+            'string.empty': 'Lastname should not be empty',
+        }),
     email: Joi.string()
         .email({
             minDomainSegments: 1
         }).allow('com')
-        .required(),
+        .required()
+        .messages({
+            'string.empty': 'Email should not be empty',
+        }),
     password: Joi.string()
         .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$'))
-        .required(),
-}).options({ abortEarly: false });
+        .required()
+        .messages({
+            'string.empty': 'Lastname should not be empty',
+        }),
+}).options({abortEarly: false});
 
 export default registerSchema;

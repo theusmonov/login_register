@@ -1,6 +1,7 @@
 import {UserModel} from "../../model/index.js";
 import bcrypt from "bcrypt";
 import {BadRequestError} from "../../shared/errors/classes.js";
+import {jwtSignToken} from "../../shared/utils/helper.js";
 
 
 
@@ -22,7 +23,7 @@ export const userRegister = async (data) => {
     }
 
     const hashPassword = await bcrypt.hashSync(password, 10);
-
-    return await UserModel.create({...data, password: hashPassword});
-
+    const token = jwtSignToken.sign({email, password}, {expiresIn: "1d"});
+    const newUser = await UserModel.create({...data, password: hashPassword});
+    return {newUser, token}
 }
